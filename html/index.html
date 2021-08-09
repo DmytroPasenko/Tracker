@@ -17,7 +17,7 @@
       <nav class="flex navigation">
         <div class="flex mx-auto items-center font-thin">
           <ul class="flex text-white uppercase">
-            <li class="mx-8 current-page"><a href="#">Home</a></li>
+            <li class="mx-8 currentPage"><a href="#">Home</a></li>
             <li class="mx-8"><a href="#">Pages</a></li>
             <li class="mx-8"><a href="#">Collections</a></li>
           </ul>
@@ -36,37 +36,46 @@
       </nav>
     </header>
 
-    <div class="mx-auto site-container">
-      <section class="form-container">
+    <div class="mx-auto siteContainer">
+      <section class="formContainer">
         <h1 class="mt-16 text-center text-white text-6xl uppercase">Tracker</h1>
-        <form class="bg-black mx-auto mt-16 tracker-form" action="">
-          <div class="form-content">
-            <div class="flex justify-center form-section add-member">
+        <form class="bg-black mx-auto mt-16 trackerForm" action="">
+          <div class="formContent">
+            <div class="flex justify-center formSection addMember">
               <input
-                class="bg-transparent text-white name-input"
+                id="memberName"
+                class="bg-transparent text-white nameInput"
                 type="text"
-                placeholder="Name"
+                placeholder="Name*"
               />
               <input
-                class="bg-transparent text-white ml-4 initiative-input"
+                id="memberInitiative"
+                class="bg-transparent text-white ml-4 initiativeInput"
                 type="number"
-                placeholder="Initiative"
+                placeholder="Initiative*"
               />
               <button
-                class="ml-10 uppercase text-white bg-red-700 common-button"
+                class="ml-10 uppercase text-white bg-red-700 commonButton"
+                type="button"
+                onclick="addMember()"
               >
                 Add member
               </button>
             </div>
 
-            <div class="grid grid-cols-2 text-white form-section members">
-              <div class="grid grid-cols-2 items-center mx-auto my-2 member">
+            <div
+              id="membersBlock"
+              class="grid grid-cols-2 text-white formSection members"
+            >
+              <!-- <div class="grid grid-cols-2 items-center mx-auto my-2 member">
                 <div class="flex">
                   <p>First member</p>
                   <span class="mx-2">—</span>
                   <p>17</p>
                 </div>
-                <button class="text-red-700 delete-button">X</button>
+                <button class="text-red-700 deleteButton" type="button">
+                  X
+                </button>
               </div>
               <div class="grid grid-cols-2 items-center mx-auto my-2 member">
                 <div class="flex">
@@ -74,7 +83,9 @@
                   <span class="mx-2">—</span>
                   <p>9</p>
                 </div>
-                <button class="text-red-700 delete-button">X</button>
+                <button class="text-red-700 deleteButton" type="button">
+                  X
+                </button>
               </div>
               <div class="grid grid-cols-2 items-center mx-auto my-2 member">
                 <div class="flex">
@@ -82,8 +93,10 @@
                   <span class="mx-2">—</span>
                   <p>21</p>
                 </div>
-                <button class="text-red-700 delete-button">X</button>
-              </div>
+                <button class="text-red-700 deleteButton" type="button">
+                  X
+                </button>
+              </div> -->
               <button
                 class="
                   mx-auto
@@ -91,8 +104,9 @@
                   uppercase
                   bg-red-700
                   col-span-2
-                  common-button
+                  blockedButton
                 "
+                type="button"
               >
                 Generate
               </button>
@@ -105,41 +119,65 @@
                 text-white
                 uppercase
                 mt-10
-                tracker-table
+                trackerTable
               "
             >
               <h2 class="text-center mx-auto text-4xl">Third member</h2>
               <h3 class="text-center mt-2 lowercase">is acting now!</h3>
-              <button class="mx-auto mt-6 bg-red-700 uppercase blocked-button">
+              <button
+                class="mx-auto mt-6 bg-red-700 uppercase blockedButton"
+                type="button"
+              >
                 Next member
               </button>
               <div class="grid grid-cols-2 mx-auto mt-10 text-white table">
                 <div class="grid grid-cols-2 items-center mx-auto my-2">
                   <p>Third Member</p>
-                  <div class="flex items-center ml-4">
-                    <input class="ml-2 checkbox" type="checkbox" checked />
-                    <label class="normal-case font-thin" for="check"
-                      >Alive</label
-                    >
-                  </div>
+                  <label
+                    class="normal-case flex ml-4 font-thin items-center label"
+                    for=""
+                  >
+                    <input
+                      class="ml-4 checkbox"
+                      type="checkbox"
+                      id="checkBox-1"
+                      checked
+                    />
+                    <span class="fake"></span>
+                    <span class="ml-2 checkboxText">Alive</span>
+                  </label>
                 </div>
                 <div class="grid grid-cols-2 items-center mx-auto my-2">
                   <p>First Member</p>
-                  <div class="flex items-center ml-4">
-                    <input class="ml-2 checkbox" type="checkbox" checked />
-                    <label class="normal-case font-thin" for="check"
-                      >Alive</label
-                    >
-                  </div>
+                  <label
+                    class="normal-case flex ml-4 font-thin items-center label"
+                    for=""
+                  >
+                    <input
+                      class="ml-4 checkbox"
+                      type="checkbox"
+                      id="checkBox-1"
+                      checked
+                    />
+                    <span class="fake"></span>
+                    <span class="ml-2 checkboxText">Alive</span>
+                  </label>
                 </div>
                 <div class="grid grid-cols-2 items-center mx-auto my-2">
                   <p>Second Member</p>
-                  <div class="flex items-center ml-4">
-                    <input class="ml-2 checkbox" type="checkbox" checked />
-                    <label class="normal-case font-thin" for="check"
-                      >Alive</label
-                    >
-                  </div>
+                  <label
+                    class="normal-case flex ml-4 font-thin items-center label"
+                    for=""
+                  >
+                    <input
+                      class="ml-4 checkbox"
+                      type="checkbox"
+                      id="checkBox-1"
+                      checked
+                    />
+                    <span class="fake"></span>
+                    <span class="ml-2 checkboxText">Alive</span>
+                  </label>
                 </div>
               </div>
             </div>
@@ -151,5 +189,7 @@
     <footer class="bg-black py-6 mt-20 border-t-2 border-red-700 text-white">
       <p class="text-center copyright">@2021 | Developed by Elengard</p>
     </footer>
+
+    <script src="../js/script.js"></script>
   </body>
 </html>

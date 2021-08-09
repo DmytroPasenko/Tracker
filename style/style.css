@@ -92,19 +92,19 @@ header .navigation li:hover {
   opacity: 1;
 }
 
-header .navigation .current-page {
+header .navigation .currentPage {
   opacity: 1;
   font-weight: 700;
   text-decoration: underline;
 }
 
 /*site-container*/
-.site-container {
+.siteContainer {
   max-width: 1390px;
   padding: 0px 25px;
 }
 
-.site-container .form-container .tracker-form {
+.siteContainer .formContainer .trackerForm {
   width: 900px;
   border: solid 1px #ffffff;
   border-radius: 4px;
@@ -112,33 +112,33 @@ header .navigation .current-page {
           box-shadow: 0px 0px 7px 3px #000000;
 }
 
-.site-container .form-container .tracker-form .form-content {
+.siteContainer .formContainer .trackerForm .formContent {
   padding: 25px;
 }
 
-.site-container .form-container .tracker-form .form-content .form-section {
+.siteContainer .formContainer .trackerForm .formContent .formSection {
   padding: 15px 0px 40px;
   border-bottom: solid 1px rgba(255, 255, 255, 0.6);
 }
 
-.site-container .form-container .tracker-form .form-content .add-member input {
+.siteContainer .formContainer .trackerForm .formContent .addMember input {
   border-bottom: 1px solid #ffffff;
   padding: 5px;
 }
 
-.site-container .form-container .tracker-form .form-content .add-member .name-input {
+.siteContainer .formContainer .trackerForm .formContent .addMember .nameInput {
   width: 350px;
 }
 
-.site-container .form-container .tracker-form .form-content .add-member .initiative-input {
+.siteContainer .formContainer .trackerForm .formContent .addMember .initiativeInput {
   width: 100px;
 }
 
-.site-container .form-container .tracker-form .form-content .members {
+.siteContainer .formContainer .trackerForm .formContent .members {
   padding-top: 25px;
 }
 
-.site-container .form-container .tracker-form .form-content .members .member .delete-button {
+.siteContainer .formContainer .trackerForm .formContent .members .member .deleteButton {
   margin-left: 20px;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -151,12 +151,12 @@ header .navigation .current-page {
   transition: all 0.3s ease-in-out;
 }
 
-.site-container .form-container .tracker-form .form-content .members .member .delete-button:hover {
+.siteContainer .formContainer .trackerForm .formContent .members .member .deleteButton:hover {
   background: #b91c1c;
   color: #000000;
 }
 
-.site-container .form-container .tracker-form .form-content .tracker-table h2 {
+.siteContainer .formContainer .trackerForm .formContent .trackerTable h2 {
   font-family: "Roboto", sans-serif;
   font-weight: 200;
   padding: 20px 20px;
@@ -165,56 +165,47 @@ header .navigation .current-page {
   width: 500px;
 }
 
-.site-container .form-container .tracker-form .form-content .tracker-table .table .checkbox {
-  position: absolute;
-  z-index: -1;
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .checkbox {
   opacity: 0;
-}
-
-.site-container .form-container .tracker-form .form-content .tracker-table .table .checkbox + label {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-}
-
-.site-container .form-container .tracker-form .form-content .tracker-table .table .checkbox + label::before {
   cursor: pointer;
-  content: "";
-  display: inline-block;
+  z-index: 2;
+}
+
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .fake {
+  position: absolute;
+  margin-left: 1em;
+  display: block;
   width: 1em;
   height: 1em;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  -webkit-box-flex: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  border: 1px solid #b91c1c;
+  border: solid 1px #b91c1c;
   border-radius: 0.25em;
-  margin-right: 0.5em;
+  z-index: 1;
+}
+
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .fake::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 14px;
+  background-color: #b91c1c;
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 50% 50%;
-}
-
-.site-container .form-container .tracker-form .form-content .tracker-table .table .checkbox:checked + label::before {
-  border-color: #b91c1c;
-  background-color: #b91c1c;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+  opacity: 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.site-container .form-container .tracker-form .form-content .tracker-table .table .checkbox:disabled + label::before {
-  background-color: transparent;
-  background-image: none;
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .checkbox:checked + .fake::before {
+  opacity: 1;
 }
 
-.site-container .form-container .tracker-form .form-content .common-button {
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .deadMember {
+  text-decoration: line-through;
+}
+
+.siteContainer .formContainer .trackerForm .formContent .commonButton {
   width: 180px;
   height: 44px;
   border: solid 1px #b91c1c;
@@ -223,11 +214,11 @@ header .navigation .current-page {
   transition: all 0.3s ease-in-out;
 }
 
-.site-container .form-container .tracker-form .form-content .common-button:hover {
+.siteContainer .formContainer .trackerForm .formContent .commonButton:hover {
   background: transparent;
 }
 
-.site-container .form-container .tracker-form .form-content .blocked-button {
+.siteContainer .formContainer .trackerForm .formContent .blockedButton {
   width: 180px;
   height: 44px;
   border: solid 1px #555555;
