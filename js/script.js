@@ -2,15 +2,26 @@
 let members = {},
   memberIndex = 0,
   deleteButtons = {};
-const membersBlock = document.getElementById("membersBlock");
+const membersBlock = document.getElementById("membersBlock"),
+  generateButton = document.getElementById("generateButton");
+
+/*temp-function start*/
+function temp() {
+  console.log("it works!");
+}
+/*temp-function end*/
+
+function buttonClassToggle(button, condition) {
+  if (Object.keys(members).length === 0 && members.constructor === Object) {
+    button.classList.toggle("blockedButton");
+    button.classList.toggle("commonButton");
+    button.disabled = condition;
+    console.log(button.disabled, condition);
+  }
+}
 
 function addMember() {
-  // members.push(
-  //   document.getElementById("memberName").value +
-  //     "&" +
-  //     document.getElementById("memberInitiative").value
-  // );
-
+  buttonClassToggle(generateButton, false);
   members[memberIndex] = {
     index: memberIndex,
     name: document.getElementById("memberName").value,
@@ -42,8 +53,6 @@ function addMember() {
     deleteButton: document.getElementById("deleteButton"),
   };
   memberIndex++;
-  // console.log(members);
-  // console.log(deleteButtons);
 
   /*delete-member*/
   Object.keys(deleteButtons).forEach((key) => [
@@ -53,31 +62,9 @@ function addMember() {
       );
       delete deleteButtons[key];
       delete members[key];
-      console.log(key, "deleted");
-      console.log("members", members);
-      console.log(deleteButtons);
+      buttonClassToggle(generateButton, true);
     }),
-    // deleteButton.addEventListener("click", function () {
-    //   console.log("deleted");
-    // }),
   ]);
-
-  // deleteButtons.forEach((deleteButton, index) => [
-  //   deleteButton.addEventListener("click", function () {
-  //     deleteButton.parentNode.parentNode.removeChild(deleteButton.parentNode);
-  //     // console.log("index: ", index, "; member del");
-  //     // deleteButtons.splice(index, 1);
-  //     console.log(members[index], " deleted");
-  //     delete members[index];
-  //     console.log(members);
-  //     // deleteButtons.forEach((_deleteButton, index) => {
-  //     //   // console.log("index: ", index, "; member del");
-  //     //   // deleteButtons.splice(index, 1);
-  //     //   // members.splice(index, 1);
-  //     //   // console.log(members);
-  //     // });
-  //   }),
-  // ]);
 }
 
 /*checkbox*/
