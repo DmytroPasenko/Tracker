@@ -86,14 +86,8 @@ function battleGeneration() {
     };
   });
 
-  console.log(
-    Object.values(sortedMembers).sort((a, b) =>
-      a.initiative > b.initiative ? 1 : -1
-    )
-  );
-
-  sortedMembersArray = Object.values(sortedMembers).sort((a, b) =>
-    a.initiative > b.initiative ? 1 : -1
+  sortedMembersArray = Object.values(sortedMembers).sort(
+    (a, b) => a.initiative - b.initiative
   );
 
   /*filling-up-the-battle-queue*/
