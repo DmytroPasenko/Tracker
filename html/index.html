@@ -55,6 +55,7 @@
                 placeholder="Initiative*"
               />
               <button
+                id="addMemberButton"
                 class="ml-10 uppercase text-white bg-red-700 commonButton"
                 type="button"
                 onclick="addMember()"
@@ -78,6 +79,7 @@
                   blockedButton
                 "
                 type="button"
+                onclick="battleGeneration()"
                 disabled
               >
                 Generate
@@ -85,6 +87,7 @@
             </div>
 
             <div
+              id="trackerTable"
               class="
                 flex flex-col
                 justify-center
@@ -94,52 +97,19 @@
                 trackerTable
               "
             >
-              <h2 class="text-center mx-auto text-4xl">Third member</h2>
+              <h2 id="currentMember" class="text-center mx-auto text-4xl">
+                Dungeon Master
+              </h2>
               <h3 class="text-center mt-2 lowercase">is acting now!</h3>
               <button
+                id="nextMemberButton"
                 class="mx-auto mt-6 bg-red-700 uppercase blockedButton"
                 type="button"
+                disabled
               >
                 Next member
               </button>
-              <div class="grid grid-cols-2 mx-auto mt-10 text-white table">
-                <div class="grid grid-cols-2 items-center mx-auto my-2">
-                  <p class="mx-4">Third Member</p>
-                  <select
-                    class="bg-transparent ml-3 memberStatusSelector"
-                    name="status"
-                    id="memberStatus"
-                  >
-                    <option value="0">Alive</option>
-                    <option value="1">Unconscious</option>
-                    <option value="2">Death</option>
-                  </select>
-                </div>
-                <div class="grid grid-cols-2 items-center mx-auto my-2">
-                  <p class="mx-4">First Member</p>
-                  <select
-                    class="bg-transparent ml-3 memberStatusSelector"
-                    name="status"
-                    id="memberStatus"
-                  >
-                    <option value="0">Alive</option>
-                    <option value="1">Unconscious</option>
-                    <option value="2">Death</option>
-                  </select>
-                </div>
-                <div class="grid grid-cols-2 items-center mx-auto my-2">
-                  <p class="mx-4">Second Member</p>
-                  <select
-                    class="bg-transparent ml-3 memberStatusSelector"
-                    name="status"
-                    id="memberStatus"
-                  >
-                    <option value="0">Alive</option>
-                    <option value="1">Unconscious</option>
-                    <option value="2">Death</option>
-                  </select>
-                </div>
-              </div>
+              <div id="table" class="mx-auto mt-10 text-white table"></div>
             </div>
           </div>
         </form>
