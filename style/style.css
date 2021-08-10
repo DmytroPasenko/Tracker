@@ -165,44 +165,13 @@ header .navigation .currentPage {
   width: 500px;
 }
 
-.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .checkbox {
-  opacity: 0;
-  cursor: pointer;
-  z-index: 2;
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .memberStatusSelector {
+  width: 120px;
+  border-bottom: solid 1px #ffffff;
 }
 
-.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .fake {
-  position: absolute;
-  margin-left: 1em;
-  display: block;
-  width: 1em;
-  height: 1em;
-  border: solid 1px #b91c1c;
-  border-radius: 0.25em;
-  z-index: 1;
-}
-
-.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .fake::before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 14px;
-  height: 14px;
-  background-color: #b91c1c;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
-  opacity: 0;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .label .checkbox:checked + .fake::before {
-  opacity: 1;
-}
-
-.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .deadMember {
-  text-decoration: line-through;
+.siteContainer .formContainer .trackerForm .formContent .trackerTable .table .memberStatusSelector option {
+  background: #000000;
 }
 
 .siteContainer .formContainer .trackerForm .formContent .commonButton {
