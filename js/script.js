@@ -173,14 +173,12 @@ function createAdditionMembers() {
 let memberTick = 1;
 
 function nextMember() {
-  if (memberTick != sortedMembersArray.length) {
-    memberTick++;
-  } else {
-    memberTick = 1;
-  }
+  memberTick != sortedMembersArray.length ? memberTick++ : (memberTick = 1);
   currentMember.innerText =
     sortedMembersArray[sortedMembersArray.length - memberTick].name;
 }
+
+/*unconscious-status-for-member*/
 
 /*checkbox*/
 const checkBoxes = [...document.getElementsByClassName("checkbox")];
