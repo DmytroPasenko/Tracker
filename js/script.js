@@ -72,12 +72,13 @@ function addMember() {
 const nextMemberButton = document.getElementById("nextMemberButton"),
   addMemberButton = document.getElementById("addMemberButton"),
   currentMember = document.getElementById("currentMember"),
+  trackerTable = document.getElementById("trackerTable"),
   table = document.getElementById("table");
 let sortedMembers = {},
   sortedMembersArray = [];
 
 function battleGeneration() {
-  buttonClassToggle(nextMemberButton, true);
+  buttonClassToggle(nextMemberButton, false);
 
   Object.keys(members).forEach((key) => {
     sortedMembers[key] = {
@@ -116,6 +117,7 @@ function battleGeneration() {
   ]);
 
   clearMembersList();
+  createAdditionMembers();
 }
 
 function clearMembersList() {
@@ -135,6 +137,49 @@ function clearMembersList() {
   buttonClassToggle(addMemberButton, true);
   currentMember.innerText =
     sortedMembersArray[sortedMembersArray.length - 1].name;
+}
+
+function createAdditionMembers() {
+  trackerTable.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="flex justify-center formSection addMember">
+      <input
+        id="memberName"
+        class="bg-transparent text-white nameInput"
+        type="text"
+        placeholder="Name*"
+      />
+      <input
+        id="memberInitiative"
+        class="bg-transparent text-white ml-4 initiativeInput"
+        type="number"
+        placeholder="Initiative*"
+      />
+      <button
+        id="addMemberButton"
+        class="ml-10 uppercase text-white bg-red-700 commonButton"
+        type="button"
+        onclick="addMember()"
+      >
+        Add member
+      </button>
+    </div>
+    `
+  );
+}
+
+/*next-member*/
+let memberTick = 1;
+
+function nextMember() {
+  if (memberTick != sortedMembersArray.length) {
+    memberTick++;
+  } else {
+    memberTick = 1;
+  }
+  currentMember.innerText =
+    sortedMembersArray[sortedMembersArray.length - memberTick].name;
 }
 
 /*checkbox*/
