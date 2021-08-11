@@ -69,7 +69,8 @@ function addMember() {
 }
 
 /*battle-generation*/
-const nextMemberButton = document.getElementById("nextMemberButton"),
+const previousMemberButton = document.getElementById("previousMemberButton"),
+  nextMemberButton = document.getElementById("nextMemberButton"),
   addMemberButton = document.getElementById("addMemberButton"),
   currentMember = document.getElementById("currentMember"),
   trackerTable = document.getElementById("trackerTable"),
@@ -78,12 +79,14 @@ let sortedMembers = {},
   sortedMembersArray = [];
 
 function battleGeneration() {
+  buttonClassToggle(previousMemberButton, false);
   buttonClassToggle(nextMemberButton, false);
 
   Object.keys(members).forEach((key) => {
     sortedMembers[key] = {
       name: members[key].name,
       initiative: members[key].initiative,
+      status: "alive",
     };
   });
 
@@ -185,6 +188,15 @@ function nextMember() {
     sortedMembersArray[sortedMembersArray.length - memberTick].name;
 }
 
+/*previous-member*/
+function previousMember() {
+  memberTick != 1
+    ? (memberTick = memberTick - 1)
+    : (memberTick = sortedMembersArray.length);
+  currentMember.innerText =
+    sortedMembersArray[sortedMembersArray.length - memberTick].name;
+}
+
 /*insert-member*/
 function insertMember() {
   const insertingMemberName = document.getElementById("insMemberName"),
@@ -193,6 +205,7 @@ function insertMember() {
   sortedMembersArray.push({
     name: insertingMemberName.value,
     initiative: insertingMemberInitiative.value,
+    status: "alive",
   });
 
   sortedMembersArray = sortedMembersArray.sort(
@@ -202,11 +215,9 @@ function insertMember() {
   while (table.hasChildNodes()) {
     table.removeChild(table.firstChild);
   }
-
   fillingBattle();
-  // memberTick = 1;
-  // currentMember.innerText =
-  //   sortedMembersArray[sortedMembersArray.length - memberTick].name;
+
+  console.log(sortedMembersArray);
 }
 
 /*unconscious-status-for-member*/

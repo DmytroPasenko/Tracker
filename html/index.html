@@ -101,15 +101,26 @@
                 Dungeon Master
               </h2>
               <h3 class="text-center mt-2 lowercase">is acting now!</h3>
-              <button
-                id="nextMemberButton"
-                class="mx-auto mt-6 bg-red-700 uppercase blockedButton"
-                type="button"
-                onclick="nextMember()"
-                disabled
-              >
-                Next member
-              </button>
+              <div class="grid grid-cols-2">
+                <button
+                  id="previousMemberButton"
+                  class="ml-auto mr-2 mt-6 bg-red-700 uppercase blockedButton"
+                  type="button"
+                  onclick="previousMember()"
+                  disabled
+                >
+                  Previous member
+                </button>
+                <button
+                  id="nextMemberButton"
+                  class="mr-auto ml-2 mt-6 bg-red-700 uppercase blockedButton"
+                  type="button"
+                  onclick="nextMember()"
+                  disabled
+                >
+                  Next member
+                </button>
+              </div>
               <div id="table" class="mx-auto mt-10 text-white table"></div>
             </div>
           </div>
