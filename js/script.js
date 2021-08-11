@@ -92,6 +92,16 @@ function battleGeneration() {
   );
 
   /*filling-up-the-battle-queue*/
+  fillingBattle();
+
+  const memberStatusList = document.querySelectorAll(".memberStatusSelector");
+  console.log(memberStatusList);
+
+  battlePreparation();
+  createAdditionMembers();
+}
+
+function fillingBattle() {
   sortedMembersArray.forEach((member) => [
     table.insertAdjacentHTML(
       "afterbegin",
@@ -115,12 +125,9 @@ function battleGeneration() {
       `
     ),
   ]);
-
-  clearMembersList();
-  createAdditionMembers();
 }
 
-function clearMembersList() {
+function battlePreparation() {
   members = {};
   deleteButtons = {};
   while (membersBlock.hasChildNodes()) {
@@ -143,26 +150,26 @@ function createAdditionMembers() {
   trackerTable.insertAdjacentHTML(
     "beforeend",
     `
-    <div class="flex justify-center formSection addMember">
+    <div class="flex justify-center mt-4 formSection addMember">
       <input
-        id="memberName"
+        id="insMemberName"
         class="bg-transparent text-white nameInput"
         type="text"
         placeholder="Name*"
       />
       <input
-        id="memberInitiative"
+        id="insMemberInitiative"
         class="bg-transparent text-white ml-4 initiativeInput"
         type="number"
         placeholder="Initiative*"
       />
       <button
-        id="addMemberButton"
+        id="insertMemberButton"
         class="ml-10 uppercase text-white bg-red-700 commonButton"
         type="button"
-        onclick="addMember()"
+        onclick="insertMember()"
       >
-        Add member
+        Insert member
       </button>
     </div>
     `
@@ -176,6 +183,30 @@ function nextMember() {
   memberTick != sortedMembersArray.length ? memberTick++ : (memberTick = 1);
   currentMember.innerText =
     sortedMembersArray[sortedMembersArray.length - memberTick].name;
+}
+
+/*insert-member*/
+function insertMember() {
+  const insertingMemberName = document.getElementById("insMemberName"),
+    insertingMemberInitiative = document.getElementById("insMemberInitiative");
+
+  sortedMembersArray.push({
+    name: insertingMemberName.value,
+    initiative: insertingMemberInitiative.value,
+  });
+
+  sortedMembersArray = sortedMembersArray.sort(
+    (a, b) => a.initiative - b.initiative
+  );
+
+  while (table.hasChildNodes()) {
+    table.removeChild(table.firstChild);
+  }
+
+  fillingBattle();
+  // memberTick = 1;
+  // currentMember.innerText =
+  //   sortedMembersArray[sortedMembersArray.length - memberTick].name;
 }
 
 /*unconscious-status-for-member*/
